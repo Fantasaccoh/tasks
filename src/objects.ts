@@ -115,8 +115,8 @@ export function publishQuestion(question: Question): Question {
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
     return {
         ...oldQuestion,
-        id: id,
-        name: `Copy of ${oldQuestion.name}`,
+        "id": id,
+        "name": `Copy of ${oldQuestion.name}`,
         published: false,
     };
 }

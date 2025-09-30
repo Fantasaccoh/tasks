@@ -29,7 +29,7 @@ export function findQuestion(
     id: number
 ): Question | null {
     const found = questions.find((q: Question) => q.id === id);
-    return found ?? null;
+    return  found ?? null;
 }
 
 /**
