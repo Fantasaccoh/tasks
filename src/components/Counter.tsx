@@ -5,7 +5,7 @@ export function Counter(): React.JSX.Element {
     const [value, setValue] = useState<number>(0);
     return (
         <span>
-            <Button onClick={() => { setValue(value + 1); }}>Add</Button>
+            <Button onClick={() => { setValue(value + 1); }}>Add One</Button>
             to {value}.
         </span>
     );

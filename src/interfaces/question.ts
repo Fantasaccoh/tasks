@@ -1,102 +1,25 @@
-import { Question, QuestionType } from "./interfaces/question";
+/** QuestionType influences how a question is asked and what kinds of answers are possible */
+export type QuestionType = "multiple_choice_question" | "short_answer_question";
 
-export function makeBlankQuestion(
-    id: number,
-    name: string,
-    type: QuestionType
-): Question {
-    return {
-        id: id,
-        name: name,
-        body: "",
-        type: type,
-        options: [],
-        expected: "",
-        points: 1,
-        published: false
-    };
-}
-
-export function isCorrect(question: Question, answer: string): boolean {
-    return (
-        question.expected.trim().toLowerCase() ===
-        answer.trim().toLowerCase()
-    );
-}
-
-export function isValid(question: Question, answer: string): boolean {
-    if (question.type === "short_answer_question") {
-        return true;
-    } else {
-        return question.options.includes(answer);
-    }
-}
-
-export function toShortForm(question: Question): string {
-    return question.id + ": " + question.name.substring(0, 10);
-}
-
-export function toMarkdown(question: Question): string {
-    let result = "# " + question.name + "\n";
-    result += question.body;
-
-    if (question.type === "multiple_choice_question") {
-        for (const option of question.options) {
-            result += "\n- " + option;
-        }
-    }
-
-    return result;
-}
-
-export function renameQuestion(question: Question, newName: string): Question {
-    return {
-        ...question,
-        name: newName
-    };
-}
-
-export function publishQuestion(question: Question): Question {
-    return {
-        ...question,
-        published: !question.published
-    };
-}
-
-export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    return {
-        id: id,
-        name: "Copy of " + oldQuestion.name,
-        body: oldQuestion.body,
-        type: oldQuestion.type,
-        options: [...oldQuestion.options],
-        expected: oldQuestion.expected,
-        points: oldQuestion.points,
-        published: false
-    };
-}
-
-export function addOption(question: Question, newOption: string): Question {
-    return {
-        ...question,
-        options: [...question.options, newOption]
-    };
-}
-
-export function mergeQuestion(
-    id: number,
-    name: string,
-    contentQuestion: Question,
-    { points }: { points: number }
-): Question {
-    return {
-        id: id,
-        name: name,
-        body: contentQuestion.body,
-        type: contentQuestion.type,
-        options: [...contentQuestion.options],
-        expected: contentQuestion.expected,
-        points: points,
-        published: false
-    };
+// <<<<<<< HEAD
+//=======
+/** A representation of a Question in a quizzing application */
+// >>>>>>> upstream/task-nested
+export interface Question {
+    /** A unique identifier for the question */
+    id: number;
+    /** The human-friendly title of the question */
+    name: string;
+    /** The instructions and content of the Question */
+    body: string;
+    /** The kind of Question; influences how the user answers and what options are displayed */
+    type: QuestionType;
+    /** The possible answers for a Question (for Multiple Choice questions) */
+    options: string[];
+    /** The actually correct answer expected */
+    expected: string;
+    /** How many points this question is worth, roughly indicating its importance and difficulty */
+    points: number;
+    /** Whether or not this question is ready to display to students */
+    published: boolean;
 }
