@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-const COLORS = ["red", "blue", "green", "orange", "purple", "cyan", "magenta", "yellow"];
+const COLORS = [
+    "red",
+    "blue",
+    "green",
+    "orange",
+    "purple",
+    "cyan",
+    "magenta",
+    "yellow"
+];
 
 export function ChangeColor(): React.JSX.Element {
     const [selectedColor, setSelectedColor] = useState<string>(COLORS[0]);
@@ -9,23 +18,29 @@ export function ChangeColor(): React.JSX.Element {
     return (
         <div>
             <div className="h3">Change Color</div>
-            {COLORS.map((color) => (
+            {COLORS.map((color: string) => (
                 <Form.Check
-                    key={color}
                     inline
+                    key={color}
                     type="radio"
                     name="colors"
-                    onChange={() => { setSelectedColor(color); }}
+                    onChange={() => {
+                        setSelectedColor(color);
+                    }}
                     label={color}
                     value={color}
                     checked={selectedColor === color}
                 />
             ))}
             <div>
-                You have chosen: 
-                <span 
-                    data-testid="colored-box" 
-                    style={{ backgroundColor: selectedColor, marginLeft: "5px", padding: "2px 10px" }}
+                You have chosen:{" "}
+                <span
+                    data-testid="colored-box"
+                    style={{
+                        backgroundColor: selectedColor,
+                        padding: "2px 10px",
+                        marginLeft: "5px"
+                    }}
                 >
                     {selectedColor}
                 </span>
