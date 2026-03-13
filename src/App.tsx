@@ -7,12 +7,17 @@ import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
-import { DoubleHalf } from "./bad-components/DoubleHalf";
+//import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
 import { ShoveBox } from "./bad-components/ShoveBox";
 import { ChooseTeam } from "./bad-components/ChooseTeam";
+import { CheckAnswer } from "./form-components/CheckAnswer";
+import { GiveAttempts } from "./form-components/GiveAttempts";
+import { EditMode } from "./form-components/EditMode";
+import { MultipleChoiceQuestion } from "./form-components/MultipleChoiceQuestion";
+import { ChangeColor } from "./form-components/ChangeColor";
 
-function App() {
+function App(): React.JSX.Element {
     return (
         <div className="App">
             <header className="App-header" style={{ backgroundColor: "red" }}>
@@ -24,20 +29,30 @@ function App() {
                 />
             </header>
 
-            
-            <hr />
-            <Button onClick={() => { console.log("Hello World!"); }}>
-            Log Hello World
-            </Button>
-            <hr />
+            <div style={{ textAlign: "left", padding: "20px" }}>
+                <p>Common Web Technologies:</p>
+                <ul>
+                    <li>React</li>
+                    <li>TypeScript</li>
+                    <li>Bootstrap</li>
+                </ul>
+            </div>
 
-            <ul>
-                <li>First item</li>
-                <li>Second item</li>
-                <li>Third item</li>
-            </ul>
-
-            <DoubleHalf></DoubleHalf>
+            <hr></hr>
+            <CheckAnswer expectedAnswer="42"></CheckAnswer>
+            <hr></hr>
+            <GiveAttempts></GiveAttempts>
+            <hr></hr>
+            <EditMode></EditMode>
+            <hr></hr>
+            <ChangeColor></ChangeColor>
+            <hr></hr>
+            <MultipleChoiceQuestion
+                options={["a", "b", "c"]}
+                expectedAnswer="b"
+            ></MultipleChoiceQuestion>
+            <hr></hr>
+            {/* <DoubleHalf></DoubleHalf> */}
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
@@ -56,6 +71,11 @@ function App() {
             <ChangeType></ChangeType>
             <hr />
             <CycleHoliday></CycleHoliday>
+            <hr />
+            
+            <Button onClick={() => { console.log("Hello World!"); }}>
+                Log Hello World
+            </Button>
         </div>
     );
 }
