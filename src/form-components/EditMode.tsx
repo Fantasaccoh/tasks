@@ -9,15 +9,15 @@ export function EditMode(): React.JSX.Element {
     return (
         <div>
             <div className="h3">Edit Mode</div>
-            
             <Form.Check
                 type="switch"
                 id="is-edit-mode-check"
                 label="Edit Mode?"
                 checked={isEditMode}
-                onChange={() => setIsEditMode(!isEditMode)}
+                onChange={() => {
+                    setIsEditMode(!isEditMode);
+                }}
             />
-
             {isEditMode ? (
                 <div>
                     <Form.Group controlId="formUserName">
@@ -25,15 +25,19 @@ export function EditMode(): React.JSX.Element {
                         <Form.Control
                             type="text"
                             value={userName}
-                            onChange={(e) => setUserName(e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                setUserName(e.target.value);
+                            }}
                         />
                     </Form.Group>
                     <Form.Check
                         type="checkbox"
                         id="is-student-check"
-                        label="Is student?" 
+                        label="Is student?"
                         checked={isStudent}
-                        onChange={() => setIsStudent(!isStudent)}
+                        onChange={() => {
+                            setIsStudent(!isStudent);
+                        }}
                     />
                 </div>
             ) : (

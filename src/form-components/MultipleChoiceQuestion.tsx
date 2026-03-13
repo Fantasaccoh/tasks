@@ -13,14 +13,14 @@ export function MultipleChoiceQuestion({
     return (
         <div>
             <div className="h3">Multiple Choice Question</div>
-            
+
             <Form.Group controlId="multipleChoiceOptions">
                 <Form.Label>Select an Answer</Form.Label>
                 <Form.Select
                     value={selectedAnswer}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                        setSelectedAnswer(e.target.value)
-                    }
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                        setSelectedAnswer(e.target.value);
+                    }}
                 >
                     {options.map((option: string) => (
                         <option key={option} value={option}>

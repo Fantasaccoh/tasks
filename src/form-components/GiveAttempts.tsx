@@ -3,12 +3,7 @@ import { Button, Form } from "react-bootstrap";
 
 export function GiveAttempts(): React.JSX.Element {
     const [attempts, setAttempts] = useState<number>(3);
-    const [inputAmount, setInputAmount] = useState<string>("");
-
-    const gainAttempts = () => {
-        const amount = parseInt(inputAmount) || 0;
-        setAttempts(attempts + amount);
-    };
+    const [requested, setRequested] = useState<string>("");
 
     return (
         <div>
@@ -16,15 +11,27 @@ export function GiveAttempts(): React.JSX.Element {
             <p>Attempts: {attempts}</p>
             <Form.Control
                 type="number"
-                value={inputAmount}
-                onChange={(e) => setInputAmount(e.target.value)}
+                value={requested}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    setRequested(e.target.value);
+                }}
             />
-            <Button onClick={() => setAttempts(attempts - 1)} disabled={attempts <= 0}>
+            <Button
+                onClick={() => {
+                    setAttempts(attempts - 1);
+                }}
+                disabled={attempts === 0}
+            >
                 use
             </Button>
-            <Button onClick={gainAttempts}>
+            <Button
+                onClick={() => {
+                    setAttempts(attempts + (parseInt(requested) || 0));
+                }}
+            >
                 gain
             </Button>
         </div>
     );
 }
+  

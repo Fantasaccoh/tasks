@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-export function CheckAnswer({ expectedAnswer }: { expectedAnswer: string }): React.JSX.Element {
-    const [userAnswer, setUserAnswer] = useState<string>("");
+export function CheckAnswer({
+    expectedAnswer
+}: {
+    expectedAnswer: string;
+}): React.JSX.Element {
+    const [answer, setAnswer] = useState<string>("");
 
     return (
         <div>
@@ -11,11 +15,13 @@ export function CheckAnswer({ expectedAnswer }: { expectedAnswer: string }): Rea
                 <Form.Label>Answer:</Form.Label>
                 <Form.Control
                     type="text"
-                    value={userAnswer}
-                    onChange={(e) => setUserAnswer(e.target.value)}
+                    value={answer}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setAnswer(e.target.value);
+                    }}
                 />
             </Form.Group>
-            <div>{userAnswer === expectedAnswer ? "✔️" : "❌"}</div>
+            <div>{answer === expectedAnswer ? "✔️" : "❌"}</div>
         </div>
     );
 }

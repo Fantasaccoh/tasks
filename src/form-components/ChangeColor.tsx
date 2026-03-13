@@ -15,7 +15,7 @@ export function ChangeColor(): React.JSX.Element {
                     inline
                     type="radio"
                     name="colors"
-                    onChange={() => setSelectedColor(color)}
+                    onChange={() => { setSelectedColor(color); }}
                     label={color}
                     value={color}
                     checked={selectedColor === color}
