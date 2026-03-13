@@ -196,10 +196,8 @@ export function editOption(
 
         let newOptions = [...q.options];
         if (targetOptionIndex === -1) {
-            // Add to the end
             newOptions = [...newOptions, newOption];
         } else {
-            // Replace at index
             newOptions = newOptions.map((opt, idx) =>
                 idx === targetOptionIndex ? newOption : opt,
             );
