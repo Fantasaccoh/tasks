@@ -31,7 +31,7 @@ export function ChooseTeam(): React.JSX.Element {
                 <Col>
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
-                            <Button onClick={() => chooseMember(option)} size="sm">
+                            <Button onClick={() => { chooseMember(option); }}>
                                 {option}
                             </Button>
                         </div>

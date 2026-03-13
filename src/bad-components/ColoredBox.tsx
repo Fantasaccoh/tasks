@@ -46,10 +46,10 @@ export function ColoredBox(): React.JSX.Element {
     return (
         <div>
             <div style={{ fontWeight: 'bold' }}>Colored Box</div>
-            {/* Display the actual current color */}
+           
             <span>The current color is: {COLORS[colorIndex]}</span>
             <div>
-                {/* 4. Pass the "setter" function and the "color" value down */}
+                
                 <ChangeColor setter={nextColor}></ChangeColor>
                 <ColorPreview color={COLORS[colorIndex]}></ColorPreview>
             </div>

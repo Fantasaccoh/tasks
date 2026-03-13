@@ -26,9 +26,9 @@ function App() {
 
             
             <hr />
-            <Button onClick={() => console.log("Hello World!")}>
-                Log Hello World
-            </Button> 
+            <Button onClick={() => { console.log("Hello World!"); }}>
+            Log Hello World
+            </Button>
             <hr />
 
             <ul>
