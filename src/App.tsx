@@ -26,12 +26,12 @@ function App() {
                 <li>Bootstrap</li>
             </ul>
 
-            <button
-                className="btn btn-primary"
-                onClick={() => console.log("Hello World!")}
-            >
-                Log Hello World
-            </button>
+           <button
+    className="btn btn-primary"
+    onClick={() => { console.log("Hello World!"); }}
+>
+    Log Hello World
+</button>
 
             <hr />
             <Counter></Counter>
