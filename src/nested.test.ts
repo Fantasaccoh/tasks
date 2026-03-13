@@ -777,7 +777,7 @@ describe("Testing the Question[] functions", () => {
         ]);
     });
 
-    test("Test the changeQuestionTypeById function", () => {
+    test("the changeQuestionTypeById function", () => {
         expect(
             changeQuestionTypeById(
                 BLANK_QUESTIONS,

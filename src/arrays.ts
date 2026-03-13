@@ -9,9 +9,9 @@ export function bookEndList(numbers: number[]): number[] {
         return [];
     }
     if (numbers.length === 1){
-        return [numbers [0],numbers[0]];
+        return [numbers[0],numbers[0]];
     }
-    return [numbers [0], numbers[numbers.length - 1]];
+    return [numbers[0], numbers[numbers.length - 1]];
 }
 
 /**
@@ -104,9 +104,7 @@ export function makeMath(addends: number[]): string {
  */
 export function injectPositive(values: number[]): number[] {
     const firstNegativeIndex = values.findIndex((v) => v < 0);
-
     if (firstNegativeIndex === -1) {
-        
         const totalSum = values.reduce((acc, n) => acc + n, 0);
         return [...values, totalSum];
     }

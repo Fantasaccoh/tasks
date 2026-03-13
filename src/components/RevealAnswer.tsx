@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function RevealAnswer(): JSX.Element {
+export function RevealAnswer(): React.JSX.Element {
     const [show, setShow] = useState(false);
 
     function toggleAnswer() {
